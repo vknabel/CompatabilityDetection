@@ -6,6 +6,7 @@ import PackageDescription
 let package = Package(
     name: "CompatabilityDetection",
     products: [
+        .executable(name: "spmtest", targets: ["spmtest"]),
         .library(name: "CompatabilityDetection", targets: ["CompatabilityDetection"]),
     ],
     dependencies: [
@@ -13,7 +14,9 @@ let package = Package(
         .package(url: "https://github.com/vknabel/PromptLine", .branchItem("2a38b0c97c267a1ac1f7dc45694e6524593b55b3")),
     ],
     targets: [
+        .target(name: "spmtest", dependencies: ["CompatabilityDetection"]),
         .target(name: "CompatabilityDetection", dependencies: ["Overture", "PromptLine"]),
         .testTarget(name: "CompatabilityDetectionTests", dependencies: ["CompatabilityDetection"]),
     ]
 )
+
