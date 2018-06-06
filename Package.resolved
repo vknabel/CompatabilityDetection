@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/vknabel/PromptLine",
         "state": {
           "branch": null,
-          "revision": "2a38b0c97c267a1ac1f7dc45694e6524593b55b3",
-          "version": null
+          "revision": "b687fccefd4e59c8fca4381bb13d6ccdcd70eedf",
+          "version": "0.6.2"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/pointfreeco/swift-overture",
         "state": {
           "branch": null,
-          "revision": "c3082d0c535acd9b6fda9531b54ede37ccbd421d",
-          "version": null
+          "revision": "2583a5815117e859b33bfc2d573f7fc47391d22b",
+          "version": "0.2.0"
         }
       }
     ]
