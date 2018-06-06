@@ -93,7 +93,7 @@ func additions(of changelog: String) -> String {
 }
 
 func diff(for url: URL) throws -> String? {
-    let request = URLRequest(url: URL(string: "https://patch-diff.githubusercontent.com/raw/felix91gr/awesome-system-swift/pull/12.diff")!)
+    let request = URLRequest(url: url)
     var response: URLResponse?
     let data = try NSURLConnection.sendSynchronousRequest(request, returning: &response)
     return String(data: data, encoding: .utf8)
