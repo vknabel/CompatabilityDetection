@@ -3,8 +3,8 @@ import Overture
 import PromptLine
 
 public struct AddedRepo {
-    let name: String
-    let url: URL
+    public let name: String
+    public let url: URL
 }
 
 extension AddedRepo {
