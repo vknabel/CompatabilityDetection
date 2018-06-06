@@ -9,8 +9,8 @@ let package = Package(
         .library(name: "CompatabilityDetection", targets: ["CompatabilityDetection"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-overture", .branchItem("c3082d0c535acd9b6fda9531b54ede37ccbd421d")),
-        .package(url: "https://github.com/vknabel/PromptLine", .branchItem("2a38b0c97c267a1ac1f7dc45694e6524593b55b3")),
+        .package(url: "https://github.com/pointfreeco/swift-overture", from: "0.2.0"),
+        .package(url: "https://github.com/vknabel/PromptLine", .branch("complete-refactor")),
     ],
     targets: [
         .target(name: "CompatabilityDetection", dependencies: ["Overture", "PromptLine"]),
