@@ -94,8 +94,7 @@ func additions(of changelog: String) -> String {
 
 func diff(for url: URL) throws -> String? {
     let request = URLRequest(url: url)
-    var response: URLResponse?
-    let data = try NSURLConnection.sendSynchronousRequest(request, returning: &response)
+    let data = try sendSynchronousRequest(request)
     return String(data: data, encoding: .utf8)
 }
 
@@ -105,3 +104,25 @@ public let compatabilityTestAdditionsForUrl = chain(
     additions(of:),
     compatibilityResults(for:)
 )
+
+private func sendSynchronousRequest(_ request: URLRequest) throws -> Data {
+    var data: Data?
+    var error: Error?
+
+    let semaphore = DispatchSemaphore(value: 0)
+
+    let dataTask = URLSession.shared.dataTask(with: request) {
+        data = $0
+        error = $2
+
+        semaphore.signal()
+    }
+    dataTask.resume()
+
+    _ = semaphore.wait(timeout: .distantFuture)
+
+    if let error = error {
+        throw error
+    }
+    return data!
+}
