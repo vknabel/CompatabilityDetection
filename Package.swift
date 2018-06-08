@@ -16,7 +16,7 @@ let package = Package(
     targets: [
         .target(name: "spmtest", dependencies: ["CompatabilityDetection"]),
         .target(name: "CompatabilityDetection", dependencies: ["Overture", "PromptLine"]),
-        .testTarget(name: "CompatabilityDetectionTests", dependencies: ["CompatabilityDetection"]),
+        .testTarget(name: "CompatabilityDetectionTests", dependencies: ["CompatabilityDetection", "Overture", "PromptLine"]),
     ]
 )
 

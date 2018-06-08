@@ -2,15 +2,9 @@ import XCTest
 @testable import CompatabilityDetection
 
 final class CompatabilityDetectionTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        // XCTAssertEqual(SwiftPackageTestRunner().text, "Hello, World!")
+    func testEmptyDiffHasEmptySummary() throws {
+        Current = .mockEmptyDiff
+        let additions = try compatabilityTestAdditionsForUrl("https://my.valid.url/diff")
+        XCTAssertEqual(additions, [])
     }
-
-
-    static var allTests = [
-        ("testExample", testExample),
-    ]
 }

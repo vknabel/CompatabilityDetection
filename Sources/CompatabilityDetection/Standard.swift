@@ -1,5 +1,9 @@
 import Overture
 
+func first<A, B>(_ a: A) -> (B) -> A {
+    return { _ in a }
+}
+
 func dropFirst<S: Sequence>(_ n: Int = 1) -> (S) -> S.SubSequence {
     return { s in s.dropFirst(n) }
 }

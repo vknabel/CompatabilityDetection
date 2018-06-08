@@ -2,7 +2,7 @@ import XCTest
 
 extension CompatabilityDetectionTests {
     static let __allTests = [
-        ("testExample", testExample),
+        ("testEmptyDiffHasEmptySummary", testEmptyDiffHasEmptySummary),
     ]
 }
 
