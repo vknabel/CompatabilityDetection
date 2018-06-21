@@ -1,16 +1,24 @@
 
 public enum RepoTestError: Error, Hashable {
     case cloneFailed
+    case missingManifest
     case resolveFailed
     case buildFailed
     case missingLinuxMain
     case testBuildFailed
     case testFailed
 
-    var description: String {
+    public enum Severity {
+        case error
+        case info
+    }
+
+    public var description: String {
         switch self {
         case .cloneFailed:
             return  "`git clone` failed."
+        case .missingManifest:
+            return  "`swift package describe` failed. Is it a SwiftPM project?"
         case .resolveFailed:
             return "`swift package resolve` failed."
         case .buildFailed:
@@ -21,6 +29,15 @@ public enum RepoTestError: Error, Hashable {
             return "`swift build --build-tests` failed."
         case .testFailed:
             return "`swift test` failed."
+        }
+    }
+
+    public var severity: Severity {
+        switch self {
+        case .missingManifest, .missingLinuxMain:
+            return .info
+        default:
+            return .error
         }
     }
 }

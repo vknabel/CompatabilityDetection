@@ -23,6 +23,7 @@ func compatibilityResults(for changes: String) -> [Summary] {
             %& Prompt.cd(.init(repo.name))
             %? first(RepoTestError.cloneFailed)
         let swiftenv = >-"swiftenv install"
+        let manifest = >-"swift package describe" %? first(RepoTestError.missingManifest)
         let resolve = >-"swift package resolve" %? first(RepoTestError.resolveFailed)
         let build = >-"swift build" %? first(RepoTestError.buildFailed)
         let testLinuxMain = >-"test -f Tests/LinuxMain.swift" %? first(RepoTestError.missingLinuxMain)

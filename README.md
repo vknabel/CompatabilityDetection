@@ -1,3 +1,3 @@
-# SwiftPackageTestRunner
+# CompatabilityDetection
 
-A description of this package.
+Clones repos and builds SwiftPM projects on linux.
